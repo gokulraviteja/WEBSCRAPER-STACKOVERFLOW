@@ -19,7 +19,10 @@ for i in range(1,5):
 df['Tag_Count']=[int(i) for i in df['Tag_Count']]
 
 df2= pd.DataFrame(df)
-print(df2)
+l=len(df['Language'])
+for i in range(l):
+    print(df['Language'][i], " --taggedin-- ",df['Tag_Count'][i])
+
 style.use('ggplot')
 df2.sort_values(by=['Tag_Count'],ascending=False).head(10).set_index('Language').plot(kind='bar')
 plt.show()
